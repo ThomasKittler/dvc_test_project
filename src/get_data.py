@@ -16,7 +16,7 @@ def get_data():
     X_train, X_test, y_train, y_test = train_test_split(
         data,
         digits.target,
-        test_size=0.5,
+        test_size=0.3,
         shuffle=False
     )
 

@@ -5,11 +5,11 @@ stages:
     deps:
     - path: src/get_data.py
       hash: md5
-      md5: 164a081ec241ea9fd8a50be5b71f73d4
+      md5: 569d4e96a3fa2e5d3aa443bbd7b1f36f
       size: 1360
     outs:
     - path: data
       hash: md5
-      md5: 0a548a35c54257efd6469d7fa2c9409b.dir
+      md5: 46bc878535f9e513c5d8c4158925d317.dir
       size: 2920125
       nfiles: 4
