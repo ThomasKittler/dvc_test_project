@@ -1,3 +1,5 @@
+import os
+
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import pandas as pd
@@ -18,6 +20,21 @@ def get_data():
         shuffle=False
     )
 
+    try:
+        os.mkdir("/home/thomas/projects/tutorials/dvc_own_test/data/")
+    except:
+        pass
+
+    try:
+        os.mkdir("/home/thomas/projects/tutorials/dvc_own_test/data/train/")
+    except:
+        pass
+
+    try:
+        os.mkdir("/home/thomas/projects/tutorials/dvc_own_test/data/test/")
+    except:
+        pass
+
     np.savetxt(
         fname="/home/thomas/projects/tutorials/dvc_own_test/data/train/X.csv",
         X=X_train,
@@ -31,7 +48,7 @@ def get_data():
     )
 
     np.savetxt(
-        fname="/home/thomas/projects/tutorials/dvc_own_test/data/test/x.csv",
+        fname="/home/thomas/projects/tutorials/dvc_own_test/data/test/X.csv",
         X=X_test,
         delimiter=";"
     )
