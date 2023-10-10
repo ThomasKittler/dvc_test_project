@@ -4,9 +4,16 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import numpy as np
+from ruamel.yaml import YAML
 
+
+yaml = YAML(typ="safe")
 
 def get_data():
+
+    params = yaml.load(
+        open("params.yaml", encoding="utf-8")
+    )
 
     digits = datasets.load_digits()
 
@@ -16,8 +23,8 @@ def get_data():
     X_train, X_test, y_train, y_test = train_test_split(
         data,
         digits.target,
-        test_size=0.3,
-        shuffle=False
+        test_size=params["get-raw-data"]["test_size"],
+        shuffle=params["get-raw-data"]["shuffle"]
     )
 
     try:

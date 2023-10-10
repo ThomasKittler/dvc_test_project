@@ -1,0 +1,6 @@
+get-raw-data:
+  shuffle: True
+  test_size: 0.25
+
+train:
+  gamma: 0.002

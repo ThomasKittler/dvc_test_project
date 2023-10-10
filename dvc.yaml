@@ -1,7 +1,19 @@
 stages:
   get-raw-data:
     cmd: python src/get_data.py
+    params:
+    - get-raw-data.shuffle
+    - get-raw-data.test_size
     deps:
     - src/get_data.py
     outs:
     - data
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/train/
+    - src/train.py
+    params:
+    - train.gamma
+    outs:
+    - models/trained_model.joblib

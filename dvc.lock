@@ -5,11 +5,35 @@ stages:
     deps:
     - path: src/get_data.py
       hash: md5
-      md5: 569d4e96a3fa2e5d3aa443bbd7b1f36f
-      size: 1360
+      md5: 920e4301a6afdb761740ba1aca71e26a
+      size: 1551
+    params:
+      params.yaml:
+        get-raw-data.shuffle: true
+        get-raw-data.test_size: 0.25
     outs:
     - path: data
       hash: md5
-      md5: 46bc878535f9e513c5d8c4158925d317.dir
+      md5: e401e3393583d4ddba124d82634ff5c4.dir
       size: 2920125
       nfiles: 4
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/train/
+      hash: md5
+      md5: b80b61e5940e2d4cf61fba9988181d87.dir
+      size: 2188875
+      nfiles: 2
+    - path: src/train.py
+      hash: md5
+      md5: 64f3b5d6735f7262f0af8b9b87c77fe9
+      size: 573
+    params:
+      params.yaml:
+        train.gamma: 0.002
+    outs:
+    - path: models/trained_model.joblib
+      hash: md5
+      md5: 5537fa79ddcaf6ae6e40f5462046f80e
+      size: 534075
